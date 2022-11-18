@@ -25,7 +25,7 @@ class BeerApp(rumps.App):
             self.title = str(time_left).split(".")[0]
             self.menu = ["Ølsalget stenger om:", str(self.title)]
 
-        if (time_left.total_seconds() == 60*30):
+        if (abs(time_left.total_seconds() - 60*30) < 1):
             rumps.notification(title="Kjøp øl!", subtitle="Ølsalget stenger om 30 min", message='')
 
 if __name__ == "__main__":
